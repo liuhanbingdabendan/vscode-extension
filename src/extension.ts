@@ -16,6 +16,16 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
+		console.log(vscode, 'vscode');
+		vscode.window.showInformationMessage(JSON.stringify(vscode.workspace.getConfiguration('backgroundCover')));
+		vscode.window.showOpenDialog({
+			canSelectFiles: true,
+			canSelectFolders: false,
+			canSelectMany: false,
+			filters: {
+				'Images': ['png', 'jpg']
+			}
+		}).then(res => vscode.window.showInformationMessage(JSON.stringify(res)));
 		vscode.window.showInformationMessage('lhb say Hello World!');
 	});
 
